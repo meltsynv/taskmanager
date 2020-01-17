@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}Task Dashboard{% endblock %}
+{% block body %}
+    <div class="row">
+        {% for task in tasks %}
+            <div class="col-4">
+                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header tasks-header">
+                        <div class="task-title">
+                            {{ task.title }}
+                        </div>
+                        <div class="task-date">
+                            {{ task.date|date("m/d/Y") }}
+                        </div>
+                    </div>
+                    <div class="card-body task-body">
+                        <p class="card-text">
+                            {{ task.description }}
+                        </p>
+                        <a href="#">
+                            <span>Bearbeiten</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+.app {
+  display: flex;
+  flex-direction: row;
+
+  .vertical-nav {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    background-color: #222529;
+
+    a{
+      span{
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .app-content {
+    width: 100%;
+    height: auto;
+    margin-left: 200px;
+
+    .tasks-header{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+    }
+  }
+}
