@@ -31,6 +31,11 @@ class Task
      */
     private $date;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isdone;
+
     //getter and setter
     public function getId(): ?int
     {
@@ -80,8 +85,20 @@ class Task
     /**
      * @param mixed $date
      */
-    public function setDate($date): void
+    public function setDate(\DateTime $date = null): void
     {
         $this->date = $date;
+    }
+
+    public function getIsdone(): ?bool
+    {
+        return $this->isdone;
+    }
+
+    public function setIsdone(?bool $isdone): self
+    {
+        $this->isdone = $isdone;
+
+        return $this;
     }
 }
