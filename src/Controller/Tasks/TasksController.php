@@ -7,7 +7,6 @@ namespace App\Controller\Tasks;
 use App\Entity\Task;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\DataTransformer\BooleanToStringTransformer;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -26,6 +25,16 @@ class TasksController extends AbstractController
     {
         $task = $this->getDoctrine()->getRepository(Task::class)->findAll();
         return $this->render('tasks/index.html.twig', array('tasks' => $task));
+    }
+
+    /**
+     * @Route("/showTask/{id}", name="showTask")
+     */
+    public function showTask($id)
+    {
+        $task = $this->getDoctrine()->getRepository(Task::class)->find($id);
+
+        return $this->render('tasks/showTask.html.twig', array('task' => $task));
     }
 
     /**
@@ -67,7 +76,7 @@ class TasksController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $task = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -78,6 +87,47 @@ class TasksController extends AbstractController
         }
 
         return $this->render('tasks/newTask.html.twig', array('form' => $form->createView()));
+    }
+
+    /**
+     * @Route("/finishedTask", name="finishedTasks")
+     */
+    public function finishedTasks()
+    {
+        $task = $this->getDoctrine()->getRepository(Task::class)->findBy(array('isdone' => 1));
+
+        return $this->render('tasks/doneTask.html.twig', array('tasks' => $task));
+    }
+
+    /**
+     * @Route("/deleteTask/{id}", name="deleteTask")
+     */
+    public function deleteTask($id)
+    {
+        $task = $this->getDoctrine()->getRepository(Task::class)->find($id);
+
+        if ($task) {
+            $entitymanager = $this->getDoctrine()->getManager();
+            $entitymanager->remove($task);
+            $entitymanager->flush();
+
+            return $this->redirectToRoute('index');
+        }
+    }
+
+    /**
+     * @Route("/isdoneTask/{id}", name="isdoneTask")
+     */
+    public function isdoneTask($id)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $task = $entityManager->getRepository(Task::class)->find($id);
+
+        if ($task) {
+            $task->setIsdone(true);
+            $entityManager->flush();
+            return $this->redirectToRoute("finishedTasks");
+        }
     }
 
     /**
@@ -99,7 +149,7 @@ class TasksController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->flush();
 
@@ -109,20 +159,3 @@ class TasksController extends AbstractController
         return $this->render('tasks/editTask.html.twig', array('form' => $form->createView()));
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

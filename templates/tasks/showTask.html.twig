@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}Task Dashboard{% endblock %}
+{% block body %}
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description }}</p>
+    <p>{{ task.date|date("m/d/Y") }}</p>
+    <p>{{ task.isdone ? 'is done' : 'false' }}</p>
+    <a href="/">Home</a>
+{% endblock %}

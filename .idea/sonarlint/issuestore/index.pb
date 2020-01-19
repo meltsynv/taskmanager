@@ -1,0 +1,19 @@
+
+4
+.env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
+C
+assets/css/app.scss,a\7\a760694af7f06884e17f05ca9d3a59b8481d56a3
+H
+templates/base.html.twig,f\f\ffb3f1cfd73fdec1f0c80c63d0b5bbc1fff22022
+C
+src/Entity/Task.php,2\3\23b3b2d1e3d2e5fe98372944e1a8a6e66acf5e1e
+O
+templates/inc/sidenav.html.twig,a\2\a248b5fd22581bb72f83e78f5c76a921dcfe9b1a
+Q
+!templates/tasks/newTask.html.twig,a\2\a28c1d107acd0eb0e0dfdee52a1b592ae04ace4b
+O
+templates/tasks/index.html.twig,1\c\1c2248d7a8d3dec3dc923b8c3c890d1dce79d256
+X
+(src/Controller/Tasks/TasksController.php,b\1\b13c8d56ca4de05850e99fcb4c1390d32136201a
+R
+"templates/tasks/editTask.html.twig,6\9\69cdd7cd98ac906596b8c981fddad58a5c28f081
