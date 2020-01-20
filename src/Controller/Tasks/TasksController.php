@@ -19,15 +19,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class TasksController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
-     */
-    public function index()
-    {
-        $task = $this->getDoctrine()->getRepository(Task::class)->findAll();
-        return $this->render('tasks/index.html.twig', array('tasks' => $task));
-    }
-
-    /**
      * @Route("/showTask/{id}", name="showTask")
      */
     public function showTask($id)

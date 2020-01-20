@@ -17,3 +17,7 @@ X
 (src/Controller/Tasks/TasksController.php,b\1\b13c8d56ca4de05850e99fcb4c1390d32136201a
 R
 "templates/tasks/editTask.html.twig,6\9\69cdd7cd98ac906596b8c981fddad58a5c28f081
+R
+"templates/tasks/doneTask.html.twig,1\c\1ccadea43c1428c67adaa1f3819ff7a6a49cd1ec
+R
+"templates/tasks/showTask.html.twig,e\6\e6a69bc41360563292aded4213972457ce9f1445

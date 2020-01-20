@@ -4,13 +4,16 @@
     <div class="row">
         {% for task in tasks %}
             <div class="col-4">
-                <div class="card {{ task.isdone ? 'border-success' : 'border-primary' }} mb-3" style="max-width: 20rem;">
+                <div class="card {{ task.isdone ? 'border-success' : 'border-primary' }} mb-3"
+                     style="max-width: 20rem;">
                     <div class="card-header tasks-header">
                         <div class="task-title">
-                            {{ task.title }}
+                            <span>{{ task.title }}</span>
                         </div>
                         <div>
-                            <a href="/showTask/{{ task.id }}"><i class="fas fa-expand"></i></a>
+                            <a href="/showTask/{{ task.id }}">
+                                <i class="fas fa-expand" data-toggle="tooltip" data-placement="right" title="mehr anzeigen"></i>
+                            </a>
                             <button class="dropdown-custom-button" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
