@@ -30,10 +30,18 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        $tasks = $this->getDoctrine()->getRepository(Task::class)->findAll();
+        $user_id = $user->getId();
+        $tasks = $this->getDoctrine()->getRepository(Task::class)->getNumberOfTasks($user_id);
+
         $maxTasksValue = $this->getDoctrine()->getRepository(Task::class)->getNumberOfTasks();
         $numberOfFinishedTasks = $this->getDoctrine()->getRepository(Task::class)->getAllFinishedTasks();
-        $procent = ($numberOfFinishedTasks / $maxTasksValue) * 100 ;
+
+        if ($maxTasksValue == 0) {
+            $procent = 0;
+        }else{
+            $procent = ($numberOfFinishedTasks / $maxTasksValue) * 100;
+        }
+
 
         return $this->render('pages/index.html.twig',
             [

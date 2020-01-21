@@ -36,6 +36,11 @@ class Task
      */
     private $isdone;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $user_id;
+
     //getter and setter
     public function getId(): ?int
     {
@@ -100,5 +105,21 @@ class Task
         $this->isdone = $isdone;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * @param mixed $user_id
+     */
+    public function setUserId($user_id): void
+    {
+        $this->user_id = $user_id;
     }
 }

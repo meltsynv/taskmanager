@@ -5,6 +5,7 @@ namespace App\Controller\Tasks;
 
 
 use App\Entity\Task;
+use App\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -34,12 +35,14 @@ class TasksController extends AbstractController
     public function addTask()
     {
         $entitymanager = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
 
         $task = new Task();
         $task->setTitle('TaskName 1');
         $task->setDescription('Some quick example text to build on the card title and make up the bulk of the card\'s content.');
         $date = new \DateTime('@' . strtotime('now'));
         $task->setDate($date);
+        $task->setUserId($user->getId());
         $entitymanager->persist($task);
         $entitymanager->flush();
 

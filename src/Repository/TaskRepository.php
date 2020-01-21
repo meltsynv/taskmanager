@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Task;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -24,10 +25,13 @@ class TaskRepository extends ServiceEntityRepository
      * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function getNumberOfTasks()
+    public function getNumberOfTasks($user_id)
     {
+        var_dump($user_id);
         return $qb = $this->createQueryBuilder('t')
             ->select('count(t.id)')
+            ->where('t.user_id = :user_id')
+            ->setParameter('user_id', $user_id)
             ->getQuery()
             ->getSingleScalarResult();
     }
