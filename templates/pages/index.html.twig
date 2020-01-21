@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block title %}Task Dashboard{% endblock %}
+{% block body %}
+    <div class="row">
+        {% for task in tasks %}
+            <div class="col-4">
+                <div class="card {{ task.isdone ? 'border-success' : 'border-primary' }} mb-3"
+                     style="max-width: 20rem;">
+                    <div class="card-header tasks-header">
+                        <div class="task-title">
+                            <span>{{ task.title }}</span>
+                        </div>
+                        <div>
+                            <a href="/showTask/{{ task.id }}">
+                                <i class="fas fa-expand" data-toggle="tooltip" data-placement="right" title="mehr anzeigen"></i>
+                            </a>
+                            <button class="dropdown-custom-button" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                <a class="dropdown-item" href="/editTask/{{ task.id }}">
+                                    <i class="fas fa-edit"></i><span>bearbeiten</span>
+                                </a>
+                                <a class="dropdown-item" href="/isdoneTask/{{ task.id }}">
+                                    <i class="fas fa-check"></i><span>erledigt</span>
+                                </a>
+                                <a class="dropdown-item" href="/deleteTask/{{ task.id }}">
+                                    <i class="fas fa-trash"></i><span>löschen</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body task-body">
+                        <p class="card-text">
+                            {{ task.description }}
+                        </p>
+                        <div class="task-date">
+                            {{ task.date|date("m/d/Y") }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

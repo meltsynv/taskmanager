@@ -11,14 +11,8 @@
 </head>
 <body>
 <div class="app">
-    <div class="vertical-nav">
-        {{ include('inc/userProfile.html.twig') }}
-        {{ include('inc/sidenav.html.twig') }}
-    </div>
-    <div class="app-content">
-        <div class="container mt-5">
-            {% block body %}{% endblock %}
-        </div>
+    <div class="container mt-5">
+        {% block body %}{% endblock %}
     </div>
 </div>
 {% block javascripts %}

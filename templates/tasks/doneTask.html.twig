@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block title %}Task Dashboard{% endblock %}
+{% block body %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="selectAll">
+                    <label class="custom-control-label" for="selectAll"></label>
+                </div>
+            </th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tbody>
+        {% for task in tasks %}
+            <tr class="table-dark">
+                <th scope="row">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="{{ task.id }}">
+                        <label class="custom-control-label" for="{{ task.id }}"></label>
+                    </div>
+                </th>
+                <td><a href="/showTask/{{ task.id }}">{{ task.title }}</a></td>
+                <td>
+                    <button class="dropdown-custom-button" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                        <a class="dropdown-item" href="/editTask/{{ task.id }}">
+                            <i class="fas fa-edit"></i><span>bearbeiten</span>
+                        </a>
+                        <a class="dropdown-item" href="/isdoneTask/{{ task.id }}">
+                            <i class="fas fa-check"></i><span>erledigt</span>
+                        </a>
+                        <a class="dropdown-item" href="/deleteTask/{{ task.id }}">
+                            <i class="fas fa-trash"></i><span>löschen</span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

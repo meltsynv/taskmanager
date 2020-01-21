@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block title %}Task Dashboard{% endblock %}
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div class="form-group">
+        {{ form_label(form.title) }}
+        {{ form_errors(form.title) }}
+        {{ form_widget(form.title) }}
+        {{ form_help(form.title) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.description) }}
+        {{ form_errors(form.description) }}
+        {{ form_widget(form.description) }}
+        {{ form_help(form.description) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.date) }}
+        {{ form_errors(form.date) }}
+        {{ form_widget(form.date) }}
+        {{ form_help(form.date) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.isdone) }}
+        {{ form_errors(form.isdone) }}
+        {{ form_widget(form.isdone) }}
+        {{ form_help(form.isdone) }}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.save) }}
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
