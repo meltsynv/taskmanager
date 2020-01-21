@@ -1,18 +1,23 @@
 {% extends 'base.html.twig' %}
 {% block title %}Task Dashboard{% endblock %}
 {% block body %}
+    <h2>Tasks: {{ numberOfFinishedTasks }} von {{ maxValue }} erledigt...</h2>
+    <div class="progress mb-3">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{ procent }}%"
+             aria-valuenow="25" aria-valuemin="0" aria-valuemax="{{ maxValue }}"></div>
+    </div>
     <div class="row">
         {% for task in tasks %}
             <div class="col-4">
-                <div class="card {{ task.isdone ? 'border-success' : 'border-primary' }} mb-3"
-                     style="max-width: 20rem;">
+                <div class="card {{ task.isdone ? 'border-success' : 'border-primary' }} mb-3">
                     <div class="card-header tasks-header">
                         <div class="task-title">
                             <span>{{ task.title }}</span>
                         </div>
                         <div>
                             <a href="/showTask/{{ task.id }}">
-                                <i class="fas fa-expand" data-toggle="tooltip" data-placement="right" title="mehr anzeigen"></i>
+                                <i class="fas fa-expand" data-toggle="tooltip" data-placement="right"
+                                   title="mehr anzeigen"></i>
                             </a>
                             <button class="dropdown-custom-button" data-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v"></i>

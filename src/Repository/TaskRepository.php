@@ -19,6 +19,58 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+    /**
+     * @return mixed
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getNumberOfTasks()
+    {
+        return $qb = $this->createQueryBuilder('t')
+            ->select('count(t.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function getAllFinishedTasks()
+    {
+        return $qb = $this->createQueryBuilder('t')
+            ->select('count(t.id)')
+            ->where('t.isdone = 1')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    public function getAllFinishedTasksFancy($params = [])
+    {
+        $qb = $this->createQueryBuilder('t');
+        $qb
+            ->select('count(t.id)')
+            ->where(
+                $qb->expr()->eq('t.isdone', ':done')
+            );
+        $qryCfg = [
+            'done' => true,
+        ];
+
+        if (\count($params)) {
+            if (isset($params['date'])) {
+                $qb->andWhere(
+                    $qb->expr()->lt('t.date', ':date')
+                );
+
+                $qryCfg['date'] = $params['date'];
+            }
+        }
+
+        $data = $qb
+            ->setParameters($qryCfg)
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        return $data;
+    }
+
     // /**
     //  * @return Task[] Returns an array of Task objects
     //  */
@@ -48,3 +100,4 @@ class TaskRepository extends ServiceEntityRepository
     }
     */
 }
+;
