@@ -88,7 +88,9 @@ class TasksController extends AbstractController
      */
     public function finishedTasks()
     {
-        $task = $this->getDoctrine()->getRepository(Task::class)->findBy(array('isdone' => 1));
+        $user = $this->getUser();
+        $user_id = $user->getId();
+        $task = $this->getDoctrine()->getRepository(Task::class)->getAllFinishedTasks($user_id);
 
         return $this->render('tasks/doneTask.html.twig', array('tasks' => $task));
     }
@@ -130,7 +132,6 @@ class TasksController extends AbstractController
      */
     public function editTask(Request $request, $id)
     {
-        $task = new Task();
         $task = $this->getDoctrine()->getRepository(Task::class)->find($id);
 
         $form = $this->createFormBuilder($task)

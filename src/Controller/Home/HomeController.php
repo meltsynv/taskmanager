@@ -31,10 +31,10 @@ class HomeController extends AbstractController
         }
 
         $user_id = $user->getId();
-        $tasks = $this->getDoctrine()->getRepository(Task::class)->getNumberOfTasks($user_id);
+        $tasks = $this->getDoctrine()->getRepository(Task::class)->getTasksByUserId($user_id);
 
-        $maxTasksValue = $this->getDoctrine()->getRepository(Task::class)->getNumberOfTasks();
-        $numberOfFinishedTasks = $this->getDoctrine()->getRepository(Task::class)->getAllFinishedTasks();
+        $maxTasksValue = $this->getDoctrine()->getRepository(Task::class)->getNumberOfTasks($user_id);
+        $numberOfFinishedTasks = $this->getDoctrine()->getRepository(Task::class)->getNumOfAllFinishedTasks($user_id);
 
         if ($maxTasksValue == 0) {
             $procent = 0;
@@ -42,9 +42,7 @@ class HomeController extends AbstractController
             $procent = ($numberOfFinishedTasks / $maxTasksValue) * 100;
         }
 
-
-        return $this->render('pages/index.html.twig',
-            [
+        return $this->render('pages/index.html.twig', [
                 'tasks' => $tasks,
                 'user' => $user,
                 'maxValue' => $maxTasksValue,

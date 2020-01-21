@@ -11,8 +11,6 @@ O
 templates/inc/sidenav.html.twig,a\2\a248b5fd22581bb72f83e78f5c76a921dcfe9b1a
 Q
 !templates/tasks/newTask.html.twig,a\2\a28c1d107acd0eb0e0dfdee52a1b592ae04ace4b
-O
-templates/tasks/index.html.twig,1\c\1c2248d7a8d3dec3dc923b8c3c890d1dce79d256
 X
 (src/Controller/Tasks/TasksController.php,b\1\b13c8d56ca4de05850e99fcb4c1390d32136201a
 R
@@ -21,3 +19,31 @@ R
 "templates/tasks/doneTask.html.twig,1\c\1ccadea43c1428c67adaa1f3819ff7a6a49cd1ec
 R
 "templates/tasks/showTask.html.twig,e\6\e6a69bc41360563292aded4213972457ce9f1445
+M
+templates/loginBase.html.twig,3\d\3dcb928c0889abcca8c94ec1d013474f3b9424a0
+Q
+!src/Repository/UserRepository.php,9\4\943a623b5e2fd95ea78f6287fc600a6f8e0a5235
+Y
+)templates/registration/register.html.twig,1\c\1c8c7e669830383faba8ed6ab3baf68e465540f5
+N
+src/Validator/ValidateUser.php,6\1\618db76b446ee9cfae69fcbd1eb5935f256eebcf
+U
+%src/Controller/SecurityController.php,7\c\7cc876ecdb4df676c79a6188e9f3ac45e5079434
+C
+src/Entity/User.php,0\a\0a3e99b9da178509aeb5b3fa6f5dce46bc0eb8be
+Q
+!src/Controller/UserController.php,8\7\87b99206717ccce222f05190f36b6273e3ea6228
+W
+'src/Validator/ValidateUserValidator.php,5\e\5e80c962453d8d61680c7d0438e1b3afeb6a6894
+S
+#templates/inc/userProfile.html.twig,7\f\7fa528199b8fe1aba06741de50be43b4554cb071
+W
+'src/Security/LoginFormAuthenticator.php,5\8\58103073fd1d1900e366a38250f7db278e4f59eb
+O
+templates/pages/index.html.twig,0\d\0d136c4e26c0ec01bea6779155b291afbab24e9a
+Y
+)src/Controller/RegistrationController.php,b\6\b6a5dce1eac6107738aa6c9b363b605aa2315b2c
+V
+&src/Controller/Home/HomeController.php,a\6\a6542026babd3b85a0616dac458b173b91dcb084
+R
+"templates/security/login.html.twig,8\9\89d5f9595fc54c90b0c2626c3e5e07e23a679864

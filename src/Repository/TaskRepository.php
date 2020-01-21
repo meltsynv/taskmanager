@@ -20,6 +20,32 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+
+    /**
+     * @param $user_id
+     * @return array
+     */
+    public function getTasksByUserId($user_id)
+    {
+        return $qd = $this->createQueryBuilder('t')
+            ->select('t')
+            ->where('t.user_id = :user_id')
+            ->setParameter('user_id', $user_id)
+            ->getQuery()
+            ->getArrayResult();
+    }
+
+    public function getAllFinishedTasks($user_id)
+    {
+        return $qb = $this->createQueryBuilder('t')
+            ->select('t')
+            ->where('t.user_id = :user_id')
+            ->setParameter('user_id', $user_id)
+            ->andWhere('t.isdone = 1')
+            ->getQuery()
+            ->getArrayResult();
+    }
+
     /**
      * @return mixed
      * @throws \Doctrine\ORM\NoResultException
@@ -27,7 +53,6 @@ class TaskRepository extends ServiceEntityRepository
      */
     public function getNumberOfTasks($user_id)
     {
-        var_dump($user_id);
         return $qb = $this->createQueryBuilder('t')
             ->select('count(t.id)')
             ->where('t.user_id = :user_id')
@@ -36,43 +61,21 @@ class TaskRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
     }
 
-    public function getAllFinishedTasks()
+    /**
+     * @param $user_id
+     * @return mixed
+     * @throws \Doctrine\ORM\NoResultException
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getNumOfAllFinishedTasks($user_id)
     {
         return $qb = $this->createQueryBuilder('t')
-            ->select('count(t.id)')
-            ->where('t.isdone = 1')
+            ->select('count(t)')
+            ->where('t.user_id = :user_id')
+            ->setParameter('user_id', $user_id)
+            ->andWhere('t.isdone = 1')
             ->getQuery()
             ->getSingleScalarResult();
-    }
-
-    public function getAllFinishedTasksFancy($params = [])
-    {
-        $qb = $this->createQueryBuilder('t');
-        $qb
-            ->select('count(t.id)')
-            ->where(
-                $qb->expr()->eq('t.isdone', ':done')
-            );
-        $qryCfg = [
-            'done' => true,
-        ];
-
-        if (\count($params)) {
-            if (isset($params['date'])) {
-                $qb->andWhere(
-                    $qb->expr()->lt('t.date', ':date')
-                );
-
-                $qryCfg['date'] = $params['date'];
-            }
-        }
-
-        $data = $qb
-            ->setParameters($qryCfg)
-            ->getQuery()
-            ->getSingleScalarResult();
-
-        return $data;
     }
 
     // /**
