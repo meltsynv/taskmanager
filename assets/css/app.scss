@@ -6,6 +6,10 @@
   display: flex;
   flex-direction: row;
 
+  i{
+    font-style: normal !important;
+  }
+
   .vertical-nav {
     width: 200px;
     height: 100%;
@@ -16,7 +20,7 @@
     .sidenav-button-toggle{
       position: fixed;
       bottom: 75px;
-      left: 178px;
+      left: 183px;
       width: 44px;
       height: 44px;
 
@@ -72,7 +76,7 @@
       }
     }
     .sidenav-button-toggle{
-      left: 35px;
+      left: 38px;
     }
   }
 
@@ -80,6 +84,43 @@
     width: 100%;
     height: auto;
     margin-left: 200px;
+
+    .progress-wrapper{
+      .progress-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .progress-actions{
+          i{
+            font-size: 22px;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    .tasks-container{
+      margin: 0 20px;
+
+      .current-day-plan{
+        .day-plan-header{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        .day-plan-body{
+          min-height: 150px;
+          background-color: #1c1e22;
+          text-align: center;
+          padding: 10px;
+          span{
+            opacity: 0.5;
+          }
+        }
+      }
+    }
 
     table thead tr th:last-child{
       text-align: right;

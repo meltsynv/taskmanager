@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a10afda8-8982-4059-a975-54d087d4d6f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/1/b13c8d56ca4de05850e99fcb4c1390d32136201a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/1/b13c8d56ca4de05850e99fcb4c1390d32136201a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/inc/cardList.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/inc/dayPlanListCards.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/task-manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/task-manager.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Tasks/TasksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Tasks/TasksController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/pages/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/index.html.twig" afterDir="false" />
     </list>
@@ -175,7 +176,8 @@
       <workItem from="1579438443485" duration="9500000" />
       <workItem from="1579530053640" duration="16547000" />
       <workItem from="1579786686547" duration="316000" />
-      <workItem from="1579787196941" duration="6838000" />
+      <workItem from="1579787196941" duration="7259000" />
+      <workItem from="1579815277986" duration="6585000" />
     </task>
     <servers />
   </component>

@@ -1,64 +1,25 @@
 {% extends 'base.html.twig' %}
 {% block title %}Task Dashboard{% endblock %}
 {% block body %}
-    <h2>Tasks: {{ numberOfFinishedTasks }} von {{ maxValue }} erledigt...</h2>
-    <div class="progress mb-3">
-        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{ procent }}%"
-             aria-valuenow="25" aria-valuemin="0" aria-valuemax="{{ maxValue }}"></div>
-    </div>
     <div class="row">
-        {% for task in tasks %}
-            <div class="col-4">
-                <div class="card {{ task.isdone ? 'border-success' : 'border-primary' }} mb-3">
-                    <div class="card-header tasks-header">
-                        <div class="task-title">
-                            <span>{{ task.title }}</span>
-                        </div>
-                        <div>
-                            <a href="/showTask/{{ task.id }}">
-                                <i class="fas fa-expand" data-toggle="tooltip" data-placement="right"
-                                   title="mehr anzeigen"></i>
-                            </a>
-                            <button class="dropdown-custom-button" data-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
-                                <a class="dropdown-item" href="/editTask/{{ task.id }}">
-                                    <i class="fas fa-edit"></i><span>bearbeiten</span>
-                                </a>
-                                <a class="dropdown-item" href="/isdoneTask/{{ task.id }}">
-                                    <i class="fas fa-check"></i><span>erledigt</span>
-                                </a>
-                                <a class="dropdown-item" href="/deleteTask/{{ task.id }}">
-                                    <i class="fas fa-trash"></i><span>löschen</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body task-body">
-                        <p class="card-text">
-                            {{ task.description }}
-                        </p>
-                        <div class="task-date">
-                            {{ task.date|date("m/d/Y") }}
-                        </div>
+        <div class="col-8">
+            <div class="progress-wrapper">
+                <div class="progress-header">
+                    <h2>Tasks: {{ numberOfFinishedTasks }} von {{ maxValue }} erledigt...</h2>
+                    <div class="progress-actions">
+                        <i class="fas fa-th-list"></i>
+                        <i class="fas fa-th"></i>
                     </div>
                 </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{ procent }}%"
+                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="{{ maxValue }}"></div>
+                </div>
             </div>
-        {% endfor %}
+            {{ include('inc/cardList.html.twig') }}
+        </div>
         <div class="col-4">
-            <div class="card add-task-card mb-3">
-                <div class="card-header">
-                    <div class="task-title">
-                        <span>Task erstellen</span>
-                    </div>
-                </div>
-                <a href="/newtask">
-                    <div class="card-body">
-                        <i class="far fa-plus-square"></i>
-                    </div>
-                </a>
-            </div>
+            {{ include('inc/dayPlanListCards.html.twig')}}
         </div>
     </div>
 {% endblock %}

@@ -60,6 +60,7 @@ class TasksController extends AbstractController
         $task->setDescription('Enter your Description here');
         $task->setDate(new \DateTime('now'));
         $task->setIsdone(false);
+        $task->setUserId($this->getUser()->getId());
 
         $form = $this->createFormBuilder($task)
             ->add('title', TextType::class, array('attr' => array('class' => 'form-control')))

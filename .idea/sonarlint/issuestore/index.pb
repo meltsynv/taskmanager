@@ -51,3 +51,5 @@ Q
 !src/Form/RegistrationFormType.php,9\5\95d4b58438357928efb9c5a862a6d289d874e878
 Q
 !src/Repository/TaskRepository.php,a\4\a461a30596b95033268f2a399e0e84d31bc975e5
+@
+assets/js/app.js,a\1\a100a8b5c188567ddcb647c9e579d4f07284fe87

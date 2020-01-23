@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="app-content">
-        <div class="container mt-5">
+        <div class="tasks-container mt-3">
             {% block body %}{% endblock %}
         </div>
     </div>
@@ -40,6 +40,17 @@
             $('#toggle-nav').on('click', function () {
                 $('.vertical-nav').toggleClass('active-nav');
                 $('.app-content').toggleClass('active-app-content');
+            });
+
+            $('#selectAll').on('click', function () {
+                $('.custom-checkbox input').each(function () {
+
+                    if ($('.custom-checkbox input').attr("checked")){
+                        $('.custom-checkbox input').removeAttr("checked");
+                    }else {
+                        $('.custom-checkbox input').attr("checked", "checked");
+                    }
+                })
             })
         })
     </script>
