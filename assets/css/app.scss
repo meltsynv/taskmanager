@@ -11,6 +11,27 @@
     height: 100%;
     position: fixed;
     background-color: #222529;
+    border-right: 1px solid #5eb5e0;
+
+    .sidenav-button-toggle{
+      position: fixed;
+      bottom: 75px;
+      left: 178px;
+      width: 44px;
+      height: 44px;
+
+      i.fas.fa-chevron-circle-left{
+        font-size: 32px;
+        cursor: pointer;
+        color: #5eb5e0;
+        &::before{
+          width: 32px;
+          height: 32px;
+          border-radius: 16px;
+          background-color: #272B30;
+        }
+      }
+    }
 
     a{
       span{
@@ -31,6 +52,27 @@
         flex-direction: row;
         justify-content: space-between;
       }
+    }
+  }
+
+  .active-nav{
+    width: 55px;
+
+    .user-profile-wrapper{
+      .user-name{
+        display: none;
+      }
+    }
+
+    .nav{
+      a{
+        span{
+          display: none;
+        }
+      }
+    }
+    .sidenav-button-toggle{
+      left: 35px;
     }
   }
 
@@ -68,12 +110,6 @@
       }
     }
 
-    .breadcrumb{
-      padding: 10px 0 0 0;
-      border: none !important;
-      background-image: none !important;
-    }
-
     .tasks-header{
       display: flex;
       flex-direction: row;
@@ -87,5 +123,33 @@
     .task-body{
       min-height: 150px;
     }
+
+    .card.add-task-card{
+      opacity: 0.5;
+
+      &:hover{
+        opacity: 1;
+      }
+
+      .card-body{
+        width: auto;
+        min-height: 150px;
+        border: 3px dashed #868686;
+        border-spacing: 2px;
+        position: relative;
+
+        i.far.fa-plus-square{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 32px;
+        }
+      }
+    }
+  }
+
+  .active-app-content{
+    margin-left: 55px;
   }
 }

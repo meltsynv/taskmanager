@@ -47,3 +47,7 @@ V
 &src/Controller/Home/HomeController.php,a\6\a6542026babd3b85a0616dac458b173b91dcb084
 R
 "templates/security/login.html.twig,8\9\89d5f9595fc54c90b0c2626c3e5e07e23a679864
+Q
+!src/Form/RegistrationFormType.php,9\5\95d4b58438357928efb9c5a862a6d289d874e878
+Q
+!src/Repository/TaskRepository.php,a\4\a461a30596b95033268f2a399e0e84d31bc975e5

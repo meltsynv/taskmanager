@@ -1,0 +1,10 @@
+
+B	php:S1481H"(Remove this unused "$qb" local variable.(€¥‘öúÿÿÿÿ
+I	php:S1481("(Remove this unused "$qb" local variable.(€¥‘öúÿÿÿÿ8×öçÏü-
+I	php:S1481"(Remove this unused "$qd" local variable.(÷˜Áÿÿÿÿÿ8†©Ïü-
+c	php:S1192!"HDefine a constant instead of duplicating this literal "user_id" 4 times.(Á˜¡Z8ë¬¿Ïü-
+B	php:S14818"(Remove this unused "$qb" local variable.(€¥‘öúÿÿÿÿ
+v	php:S1192 "UDefine a constant instead of duplicating this literal "t.user_id = :user_id" 4 times.(ãìÃ½ûÿÿÿÿ8ºúÊÏü-
+8php:S125V"Remove this commented out code.(ÒÌâ–øÿÿÿÿ
+6	php:S1116n"Remove this empty statement.(Åñ­õşÿÿÿÿ
+8php:S125d"Remove this commented out code.(ÒÌâ–øÿÿÿÿ
